@@ -1,0 +1,11 @@
+yfinance
+pandas
+numpy
+scipy
+scikit-learn
+plotly
+dash
+matplotlib
+seaborn
+openpyxl
+sqlalchemy
