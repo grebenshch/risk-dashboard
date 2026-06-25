@@ -1,0 +1,16 @@
+,Sharpe Ratio,Volatility,Beta,Max Drawdown,CAGR,VaR_95,Cluster,Cluster Label,Cluster Name
+AAPL,0.2676,27.05,1.209,-30.91,11.88,-0.0276,1,Cluster 1,🟢 Defensive / Low Risk
+CVX,0.2482,25.8,0.5245,-24.95,10.95,-0.0261,1,Cluster 1,🟢 Defensive / Low Risk
+EL,-1.2953,43.18,1.2499,-82.39,-40.47,-0.0376,0,Cluster 0,🔴 High Risk / High Return
+GS,0.4214,26.43,1.0049,-30.51,16.32,-0.0241,1,Cluster 1,🟢 Defensive / Low Risk
+HLI,0.5503,27.31,0.9021,-36.57,20.93,-0.0263,1,Cluster 1,🟢 Defensive / Low Risk
+JNJ,-0.4165,16.34,0.2471,-18.41,-2.76,-0.016,1,Cluster 1,🟢 Defensive / Low Risk
+JPM,0.482,24.92,0.8641,-37.93,17.34,-0.0251,1,Cluster 1,🟢 Defensive / Low Risk
+KO,0.042,15.66,0.3899,-17.27,4.76,-0.0153,1,Cluster 1,🟢 Defensive / Low Risk
+MCD,0.0492,17.36,0.4645,-17.23,4.97,-0.0169,1,Cluster 1,🟢 Defensive / Low Risk
+META,0.2929,49.45,1.727,-73.74,20.28,-0.0421,2,Cluster 2,🔴 High Risk / High Return
+MRK,0.3748,20.08,0.2588,-27.08,12.2,-0.0187,1,Cluster 1,🟢 Defensive / Low Risk
+PLTR,0.6351,67.92,2.1892,-67.62,60.11,-0.0635,2,Cluster 2,🔴 High Risk / High Return
+ULTA,-0.0685,33.38,0.888,-43.48,1.73,-0.0325,1,Cluster 1,🟢 Defensive / Low Risk
+UNH,-0.0947,24.45,0.4385,-22.05,1.7,-0.0242,1,Cluster 1,🟢 Defensive / Low Risk
+XOM,0.6312,27.24,0.4653,-20.51,23.57,-0.028,1,Cluster 1,🟢 Defensive / Low Risk
