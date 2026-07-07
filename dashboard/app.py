@@ -58,7 +58,22 @@ COLORS_MAP = {
 
 # ── App ────────────────────────────────────────────────────────
 app = Dash(__name__)
+server = app.server
 
+def get_live_prices(tickers=TICKERS):
+    prices = {}
+    for ticker in tickers:
+        try:
+            stock = yf.Ticker(ticker)
+            data = stock.history(period="1d", interval="1m")
+            if not data.empty:
+                prices[ticker] = round(float(data["Close"].iloc[-1]), 2)
+            else:
+                prices[ticker] = None
+        except Exception as e:
+            print(f"Error fetching {ticker}: {e}")
+            prices[ticker] = None
+    return prices
 app.layout = html.Div([
 
     # ── HEADER ──────────────────────────────────────────────
