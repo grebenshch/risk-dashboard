@@ -179,6 +179,26 @@ app.layout = html.Div([
         "padding": "12px 30px",
         "marginBottom": "20px"
     }),
+    # ── ALL STOCKS & SECTORS OVERVIEW ────────────────────────
+    html.Div([
+        html.H3("All Stocks & Sectors Overview",
+                style={"padding": "0 30px", "fontSize": "18px"}),
+        html.Div([
+            dcc.Graph(figure=all_stocks_fig, style={"height": "380px"})
+        ], style={"padding": "10px", "margin": "0 30px 15px 30px",
+                  "background": "white", "borderRadius": "8px",
+                  "border": "1px solid #dee2e6"}),
+        html.Div([
+            dash_table.DataTable(
+                columns=kpi_table_columns,
+                data=kpi_table_data,
+                style_table={"overflowX": "auto"},
+                style_cell={"fontSize": "12px", "padding": "6px",
+                            "textAlign": "center"},
+                style_header={"fontWeight": "600", "background": "#F0F2F5"}
+            )
+        ], style={"padding": "0 30px", "marginBottom": "20px"}),
+    ]),
 
 
     # ── CHARTS ROW 1 ────────────────────────────────────────
