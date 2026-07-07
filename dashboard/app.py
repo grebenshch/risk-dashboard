@@ -153,6 +153,12 @@ app.layout = html.Div([
         "marginBottom": "20px"
     }),
 
+    html.Div(id="live-price-panel", style={
+        "padding": "12px 30px",
+        "marginBottom": "20px"
+    }),
+
+
     # ── CHARTS ROW 1 ────────────────────────────────────────
     html.Div([
         html.Div([
