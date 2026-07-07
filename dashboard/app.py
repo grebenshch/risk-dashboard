@@ -215,6 +215,39 @@ app.layout = html.Div([
 
 
 # ── CALLBACKS ─────────────────────────────────────────────────
+@app.callback(
+    Output("live-price-panel", "children"),
+    [Input("interval", "n_intervals"),
+     Input("ticker-dropdown", "value")]
+)
+def update_live_price(n_intervals, ticker):
+    from datetime import datetime
+    try:
+        stock = yf.Ticker(ticker)
+        data = stock.history(period="1d", interval="1m")
+        if not data.empty:
+            price = round(float(data["Close"].iloc[-1]), 2)
+        else:
+            price = None
+    except Exception:
+        price = None
+
+    now_str = datetime.now().strftime("%H:%M:%S")
+    if price is not None:
+        text = f"{ticker}: ${price}  —  updated {now_str}"
+        color = "#1D9E75"
+    else:
+        text = f"Live price for {ticker} temporarily unavailable ({now_str})"
+        color = "#E24B4A"
+
+    return html.Div([
+        html.Span("● LIVE  ", style={"color": color, "fontWeight": "700", "fontSize": "12px"}),
+        html.Span(text, style={"fontSize": "14px", "fontWeight": "600"})
+    ], style={
+        "background": "white", "borderRadius": "8px",
+        "border": f"1px solid {color}", "padding": "10px 16px",
+        "display": "inline-block"
+    })
 
 @app.callback(
     Output("kpi-cards", "children"),
