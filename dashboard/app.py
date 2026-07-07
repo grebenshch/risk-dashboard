@@ -56,6 +56,28 @@ COLORS_MAP = {
     "Staples":     "#639922"
 }
 
+# ── ALL-STOCKS OVERVIEW (built once at startup) ─────────────────
+_norm_prices = prices[TICKERS].dropna() / prices[TICKERS].dropna().iloc[0] * 100
+
+all_stocks_fig = go.Figure()
+for t in TICKERS:
+    all_stocks_fig.add_trace(go.Scatter(
+        x=_norm_prices.index, y=_norm_prices[t],
+        mode="lines", name=f"{t} ({SECTORS_MAP[t]})",
+        line=dict(color=COLORS_MAP[SECTORS_MAP[t]], width=1.5)
+    ))
+all_stocks_fig.update_layout(
+    title="All Stocks — Normalized Price Comparison (Start = 100)",
+    plot_bgcolor="white", paper_bgcolor="white",
+    margin=dict(l=40, r=20, t=40, b=30),
+    xaxis_title="Date", yaxis_title="Normalized Price",
+    legend=dict(orientation="h", y=-0.3)
+)
+
+kpi_table_df = kpi_df.reset_index()
+kpi_table_df.columns = ["Ticker"] + list(kpi_df.columns)
+kpi_table_columns = [{"name": c, "id": c} for c in kpi_table_df.columns]
+kpi_table_data = kpi_table_df.to_dict("records")
 # ── App ────────────────────────────────────────────────────────
 app = Dash(__name__)
 server = app.server
